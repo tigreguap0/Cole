@@ -1,4 +1,4 @@
-Var1= "Hola Mundo"
+Var1= "Hola Mundo_"
 print("La variable Var1 contiene el texto", Var1)
 Var1=4
 print("La variable Var1 contiene el numero", Var1)
