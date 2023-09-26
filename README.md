@@ -1,43 +1,24 @@
-# Hey there :wave:
+# KLK menol :wave:
 
-<img src="https://raw.githubusercontent.com/sagar-viradiya/sagar-viradiya/master/resources/banner.png" alt="Hello world">
+<img src="https://i.imgur.com/7iKny8A.png" alt="Klk mi gente">
 
 <p align="center"> 
-  Visitor count<br>
-  <img src="https://profile-counter.glitch.me/sagar-viradiya/count.svg" />
+  Mono con flow<br>
+  <img src="https://i.ytimg.com/vi/wLN69iW4bBA/hqdefault.jpg" />
 </p>
 
-## About me
+## Sobre mi
 
-I'm Sagar Viradiya. A Google Developer Expert on Android. An Android Engineer at [DeliveryHero](https://www.deliveryhero.com/) and also Co-organizer of [GDG MAD](https://gdgmad.com/) (Mumbai). Community is :heart:. Code blooded animal, 1xEngineer :stuck_out_tongue: and :coffee: lover. 
-
-I ocassionally blog and tweet about android. Also open sourced few android related stuff.  
+Soy un chaval que le gusta programas :heart: y de mayor sere un pro en la programacion :smile:
 
 
-## Things I am passionate about
+## Cosas que me apasionan 
 
-- Android :robot:
-- Open source :octocat:
+- Mono :monkey:
+- flow 😎
 
-## Get in touch :coffee:
+## ¿Quieres un :coffee:?
 
-- Your future buddy to discuss Android related things and tech in general on [Twitter](https://twitter.com/viradiya_sagar).
-- Your future life savior :stuck_out_tongue: on [Medium](https://medium.com/@sagarviradiya).
-- Your future employee on [LinkedIn](https://www.linkedin.com/in/sagarviradiya)
-- And of course GitHub you're already on (Recursion).
+Solamente mono con  flow
 
 
-<!--
-**sagar-viradiya/sagar-viradiya** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
