@@ -3,13 +3,15 @@
 <img src="https://raw.githubusercontent.com/sagar-viradiya/sagar-viradiya/master/resources/banner.png" alt="Hello world">
 
 <p align="center"> 
-  Mono con flow<br>
-  <img src="https://i.ytimg.com/vi/wLN69iW4bBA/hqdefault.jpg" />
+  Visitor count<br>
+  <img src="https://profile-counter.glitch.me/sagar-viradiya/count.svg" />
 </p>
 
 ## About me
 
-Soy un chaval que le gusta programas :heart: y de mayor sere un pro en la programacion :smile:
+I'm Sagar Viradiya. A Google Developer Expert on Android. An Android Engineer at [DeliveryHero](https://www.deliveryhero.com/) and also Co-organizer of [GDG MAD](https://gdgmad.com/) (Mumbai). Community is :heart:. Code blooded animal, 1xEngineer :stuck_out_tongue: and :coffee: lover. 
+
+I ocassionally blog and tweet about android. Also open sourced few android related stuff.  
 
 
 ## Things I am passionate about
@@ -19,7 +21,10 @@ Soy un chaval que le gusta programas :heart: y de mayor sere un pro en la progra
 
 ## Get in touch :coffee:
 
-Solamente mono con  flow
+- Your future buddy to discuss Android related things and tech in general on [Twitter](https://twitter.com/viradiya_sagar).
+- Your future life savior :stuck_out_tongue: on [Medium](https://medium.com/@sagarviradiya).
+- Your future employee on [LinkedIn](https://www.linkedin.com/in/sagarviradiya)
+- And of course GitHub you're already on (Recursion).
 
 
 <!--
