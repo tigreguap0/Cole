@@ -9,7 +9,7 @@
 
 ## Sobre mi
 
-Soy un chaval que le gusta programas :heart: y de mayor sere un pro en la programacion :smile:
+Soy un chaval que le gusta programas :heart: y de mayor sere un mono con flow :smile:
 
 
 ## Cosas que me apasionan 
