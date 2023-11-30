@@ -1,0 +1,19 @@
+
+Nombre: manolito, Dinero Ingresado: 100.0, Dinero Apostado: 10.0, Dinero Ganado: 10.0
+Nombre: manolito, Dinero Ingresado: 100.0, Dinero Apostado: 10.0, Dinero Ganado: 0.0
+Nombre: Miguel, Dinero Ingresado: 1000.0, Dinero Apostado: 10.0, Dinero Ganado: 10.0
+Nombre: Miguel, Dinero Ingresado: 1000.0, Dinero Apostado: 10.0, Dinero Ganado: 20.0
+Nombre: Miguel, Dinero Ingresado: 1000.0, Dinero Apostado: 10.0, Dinero Ganado: 30.0
+Nombre: Miguel, Dinero Ingresado: 1000.0, Dinero Apostado: 100.0, Dinero Ganado: 130.0
+Nombre: Miguel, Dinero Ingresado: 1000.0, Dinero Apostado: 100.0, Dinero Ganado: 230.0
+Nombre: Miguel, Dinero Ingresado: 1000.0, Dinero Apostado: 100.0, Dinero Ganado: 130.0
+Nombre: Miguel, Dinero Ingresado: 1000.0, Dinero Apostado: 100.0, Dinero Ganado: 230.0
+Nombre: Miguel, Dinero Ingresado: 1000.0, Dinero Apostado: 100.0, Dinero Ganado: 130.0
+Nombre: Miguel, Dinero Ingresado: 1000.0, Dinero Apostado: 100.0, Dinero Ganado: 30.0
+Nombre: Miguel, Dinero Ingresado: 1000.0, Dinero Apostado: 100.0, Dinero Ganado: 130.0
+Nombre: alex, Dinero Ingresado: 500.0, Dinero Apostado: 20.0, Dinero Ganado: -20.0
+Nombre: alex, Dinero Ingresado: 500.0, Dinero Apostado: 80.0, Dinero Ganado: -100.0
+Nombre: alex, Dinero Ingresado: 500.0, Dinero Apostado: 200.0, Dinero Ganado: -300.0
+Nombre: alex, Dinero Ingresado: 500.0, Dinero Apostado: 200.0, Dinero Ganado: -100.0
+Nombre: mfs, Dinero Ingresado: 100.0, Dinero Apostado: 10.0, Dinero Ganado: -10.0
+Nombre: 4, Dinero Ingresado: 3.0, Dinero Apostado: 2.0, Dinero Ganado: -2.0

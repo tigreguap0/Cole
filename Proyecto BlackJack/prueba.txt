@@ -1,0 +1,25 @@
+def guardar_resultados(nombre, dinero_apostado, dinero_ganado):
+    with open("top.txt", "a") as f:
+        f.write(f"Nombre: {nombre}, Dinero Apostado: {dinero_apostado}, Dinero Ganado: {dinero_ganado}\n")
+
+# Luego, en tu función jugar_blackjack() o en cualquier lugar donde quieras guardar los resultados:
+nombre_jugador = input("Ingresa tu nombre: ")
+dinero_ingresado = float(input("Ingresa la cantidad de dinero que deseas jugar: "))
+dinero_actual = dinero_ingresado
+
+# ... (resto de tu código)
+
+while dinero_actual > 0:
+    # ... (resto de tu código)
+
+    print(f"\nDinero ganado: {dinero_actual - dinero_ingresado}")
+    print(f"Dinero perdido: {dinero_ingresado - dinero_actual}")
+
+    # Guardar resultados en el archivo top.txt
+    guardar_resultados(nombre_jugador, apuesta_actual, dinero_actual - dinero_ingresado)
+
+    jugar_nuevamente = input("¿Quieres jugar otra vez? (s/n): ").lower()
+    if jugar_nuevamente != 's':
+        break
+
+# ... (resto de tu código)
