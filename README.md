@@ -9,7 +9,7 @@
 
 ## Sobre mi
 
-Soy un chaval que le gusta programas :heart: y de mayor sere un mono con flow :smile:
+Soy un mono de Guinea Equatorial, para programar le doy golpes al teclado y funciona.
 
 
 ## Cosas que me apasionan 
@@ -19,6 +19,6 @@ Soy un chaval que le gusta programas :heart: y de mayor sere un mono con flow :s
 
 ## ¿Quieres un :coffee:?
 
-Solamente mono con  flow
+Solamente un mono con  flow
 
 
