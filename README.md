@@ -305,11 +305,11 @@ Máximo 3 líneas de código.
 - 81 A partir de una lista definida, busca el método apropiado para que se visualice un valor de la 
 lista al azar
 
-- 82. Modifica el programa anterior para que sea el usuario intente adivinar la palabra escogida al 
+- 82 Modifica el programa anterior para que sea el usuario intente adivinar la palabra escogida al 
 azar de la lista, indicando si es correcto o no. El programa debe no finaliza hasta que no se adivine 
 la palabra
 
-- 83. Modifica el código del ejercicio anterior para que el programa permita repetir x partidas (hasta 
+- 83 Modifica el código del ejercicio anterior para que el programa permita repetir x partidas (hasta 
 que el usuario lo decida). Tienes que controlar una puntuación de cada partida de la siguiente 
 manera, si la palabra la aciertas a la primera son 8 puntos, si la aciertas a la segunda 7 puntos y así 
 sucesivamente.
@@ -318,7 +318,7 @@ Si el total supera la media de la puntuación posible de todas las partidas, se 
 suerte le acompaña, de lo contrario mejor no Se dediques a los juegos de azar . PISTA.. ¿existe 
 algún método que permita sumar el contenido de una lista?
 
-- 84. A partir de la lista definida en el ejercicio 81, haz que se visualice por pantalla una de las 
+- 84 A partir de la lista definida en el ejercicio 81, haz que se visualice por pantalla una de las 
 palabras, pero con todas sus letras desordenadas. El usuario tendrá que recolocar y acertar la 
 palabra secreta. El usuario tendrá 3 oportunidades para adivinar la palabra
 
