@@ -1,0 +1,128 @@
+import os
+import random
+import time
+import tkinter as tk
+from tkinter import simpledialog, messagebox
+
+class JuegoAhorcado:
+    def __init__(self, master):
+        self.master = master
+        self.master.title("Ahorcado")
+
+        self.ruta_archivo_palabras = r'C:\\Users\\FalomirSerbanMiguel\Documents\\GitHub\\Cole\\Proyecto Ahorcado\\palabras.txt'
+        self.lista_palabras_secretas = self.cargar_palabras_desde_archivo(self.ruta_archivo_palabras)
+
+        self.inicializar_variables()
+        self.inicializar_interfaz()
+
+    def cargar_palabras_desde_archivo(self, ruta):
+        with open(ruta, 'r', encoding='utf-8') as archivo:
+            return archivo.read().splitlines()
+
+    def iniciar_partida(self):
+        if not self.lista_palabras_secretas:
+            messagebox.showerror("Error", "No hay palabras en el archivo. Añade palabras antes de jugar.")
+            return
+
+        self.palabra_secreta = random.choice(self.lista_palabras_secretas)
+        self.lista_partida = ["_"] * len(self.palabra_secreta)
+        self.lista_aciertos = []
+        self.lista_errores = []
+        self.intentos_fallidos = 0
+        self.tiempo_inicio = time.time()
+
+        self.actualizar_interfaz()
+
+    def actualizar_interfaz(self):
+        self.palabra_actual_label.config(text="Palabra actual: {}".format(" ".join(self.lista_partida)))
+        self.letras_incorrectas_label.config(text="Letras incorrectas: {}".format(" ".join(self.lista_errores)))
+        self.ahorcado_label.config(text="Ahorcado: ")
+        
+        if self.intentos_fallidos > 0 and self.intentos_fallidos <= 8:
+            imagen_path = os.path.join(os.path.dirname(__file__), f"{self.intentos_fallidos}.png")
+            imagen = self.obtener_imagen_desde_archivo(imagen_path)
+
+            self.ahorcado_label.config(image=imagen)
+            self.ahorcado_label.imagen = imagen
+
+    def obtener_imagen_desde_archivo(self, archivo):
+        imagen = tk.PhotoImage(file=archivo)
+        return imagen
+
+    def verificar_letra(self):
+        letra = self.letra_entry.get().lower()
+
+        if letra in self.lista_aciertos or letra in self.lista_errores:
+            messagebox.showinfo("Error", "Ya has ingresado esa letra. Intenta de nuevo.")
+        else:
+            if letra in self.palabra_secreta:
+                for i in range(len(self.palabra_secreta)):
+                    if self.palabra_secreta[i] == letra:
+                        self.lista_partida[i] = letra
+                        self.lista_aciertos.append(letra)
+            else:
+                self.intentos_fallidos += 1
+                self.lista_errores.append(letra)
+                self.lista_ahorcado.append("A H O R C A D O"[self.intentos_fallidos - 1])
+
+            self.actualizar_interfaz()
+
+            if "_" not in self.lista_partida:
+                self.finalizar_partida()
+        
+        self.letra_entry.delete(0, tk.END)
+
+    def finalizar_partida(self):
+        tiempo_fin = time.time()
+        duracion = tiempo_fin - self.tiempo_inicio
+        messagebox.showinfo("¡Enhorabuena!", "Has adivinado la palabra: {}\n"
+                            "Número de errores: {}\n"
+                            "Número de aciertos: {}\n"
+                            "Tiempo de juego: {} minutos y {:.2f} segundos".format(self.palabra_secreta,
+                                                                                        self.intentos_fallidos,
+                                                                                        len(self.lista_aciertos),
+                                                                                        int(duracion // 60),
+                                                                                        duracion % 60))
+        self.inicializar_variables()
+        self.iniciar_partida()
+
+    def jugar_de_nuevo(self):
+        self.inicializar_variables()
+        self.iniciar_partida()
+
+    def inicializar_variables(self):
+        self.palabra_secreta = ""
+        self.lista_partida = []
+        self.lista_errores = []
+        self.lista_ahorcado = []
+        self.lista_aciertos = []
+        self.intentos_fallidos = 0
+        self.tiempo_inicio = 0
+
+    def inicializar_interfaz(self):
+        self.palabra_actual_label = tk.Label(self.master, text="Palabra actual: ")
+        self.palabra_actual_label.pack()
+
+        self.letras_incorrectas_label = tk.Label(self.master, text="Letras incorrectas: ")
+        self.letras_incorrectas_label.pack()
+
+        self.ahorcado_label = tk.Label(self.master, text="Ahorcado: ")
+        self.ahorcado_label.pack()
+
+        self.letra_entry = tk.Entry(self.master, width=5)
+        self.letra_entry.pack()
+
+        self.verificar_button = tk.Button(self.master, text="Verificar letra", command=self.verificar_letra)
+        self.verificar_button.pack()
+
+        self.jugar_de_nuevo_button = tk.Button(self.master, text="Jugar de nuevo", command=self.jugar_de_nuevo)
+        self.jugar_de_nuevo_button.pack()
+
+        self.iniciar_partida()
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    juego = JuegoAhorcado(root)
+    root.mainloop()
+
+
