@@ -12,6 +12,13 @@ class JuegoAhorcado:
         self.ruta_archivo_palabras = r'C:\\Users\\FalomirSerbanMiguel\Documents\\GitHub\\Cole\\Proyecto Ahorcado\\palabras.txt'
         self.lista_palabras_secretas = self.cargar_palabras_desde_archivo(self.ruta_archivo_palabras)
 
+        self.intentos_fallidos = 0
+        self.puntuacion = 0  # Nueva variable para la puntuación
+
+        self.mostrar_palabra_button = tk.Button(self.master, text="Mostrar palabra secreta", command=self.mostrar_palabra)
+        self.mostrar_palabra_button.pack()
+        self.mostrar_palabra_button["state"] = "disabled"
+
         self.inicializar_variables()
         self.inicializar_interfaz()
 
@@ -28,7 +35,6 @@ class JuegoAhorcado:
         self.lista_partida = ["_"] * len(self.palabra_secreta)
         self.lista_aciertos = []
         self.lista_errores = []
-        self.intentos_fallidos = 0
         self.tiempo_inicio = time.time()
 
         self.actualizar_interfaz()
@@ -67,26 +73,41 @@ class JuegoAhorcado:
 
             self.actualizar_interfaz()
 
-            if "_" not in self.lista_partida:
+            if self.intentos_fallidos == 8 or "_" not in self.lista_partida:
                 self.finalizar_partida()
-        
+
+        if self.intentos_fallidos == 8:
+            self.mostrar_palabra_button["state"] = "normal"
+
         self.letra_entry.delete(0, tk.END)
 
     def finalizar_partida(self):
         tiempo_fin = time.time()
         duracion = tiempo_fin - self.tiempo_inicio
-        messagebox.showinfo("¡Enhorabuena!", "Has adivinado la palabra: {}\n"
-                            "Número de errores: {}\n"
-                            "Número de aciertos: {}\n"
-                            "Tiempo de juego: {} minutos y {:.2f} segundos".format(self.palabra_secreta,
-                                                                                        self.intentos_fallidos,
-                                                                                        len(self.lista_aciertos),
-                                                                                        int(duracion // 60),
-                                                                                        duracion % 60))
+
+        if "_" not in self.lista_partida:
+            self.puntuacion += 1
+            messagebox.showinfo("¡Enhorabuena!", "Has adivinado la palabra: {}\n"
+                                "Número de errores: {}\n"
+                                "Número de aciertos: {}\n"
+                                "Tiempo de juego: {} minutos y {:.2f} segundos\n"
+                                "Tu puntuación actual es: {}".format(self.palabra_secreta,
+                                                                      self.intentos_fallidos,
+                                                                      len(self.lista_aciertos),
+                                                                      int(duracion // 60),
+                                                                      duracion % 60,
+                                                                      self.puntuacion))
+        else:
+            messagebox.showinfo("Fin del juego", "Lo siento, has alcanzado el límite de intentos. La palabra era: {}".format(self.palabra_secreta))
+
         self.inicializar_variables()
         self.iniciar_partida()
 
+    def mostrar_palabra(self):
+        messagebox.showinfo("Palabra secreta", "La palabra secreta es: {}".format(self.palabra_secreta))
+
     def jugar_de_nuevo(self):
+        self.mostrar_palabra_button["state"] = "disabled"
         self.inicializar_variables()
         self.iniciar_partida()
 
@@ -118,11 +139,7 @@ class JuegoAhorcado:
         self.jugar_de_nuevo_button = tk.Button(self.master, text="Jugar de nuevo", command=self.jugar_de_nuevo)
         self.jugar_de_nuevo_button.pack()
 
-        self.iniciar_partida()
-
 if __name__ == "__main__":
     root = tk.Tk()
     juego = JuegoAhorcado(root)
     root.mainloop()
-
-
