@@ -1,6 +1,8 @@
 # KLK menol :wave:
 # SI ME COPIAS ALGUN EJERCICIO QUE NO SEA MUY CANTOSO PORFA 😄
 
+Copyright 2024 © 
+
 <img src="https://i.imgur.com/7iKny8A.png" alt="Klk mi gente">
 
 <p align="center"> 
