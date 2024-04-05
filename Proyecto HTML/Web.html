@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Clicker</title>
+    <style>
+        #planet {
+            width: 300px;
+            height: 300px;
+            background-image: url('https://i.pinimg.com/originals/9d/ce/a0/9dcea0f1052679933a1abc40c8598e97.gif');
+            background-size: cover;
+            cursor: url("hand.cur");
+        }
+
+        #planetCounter {
+            font-size: 24px;
+        }
+
+        .upgradeButton {
+            margin-top: 10px;
+            font-size: 16px;
+            padding: 8px 16px;
+        }
+
+        #upgrades {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .upgrade {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="planet" onclick="incrementPlanetCounter()"></div>
+    <p>Numero de planetas: <span id="planetCounter">0</span></p>
+    <div id="upgrades">
+        <button id="upgrade1" class="upgradeButton" data-cost="100" onclick="buyUpgrade(100, 1.25)">Mejora 1 (Costo: 100 planetas)</button>
+        <button id="upgrade2" class="upgradeButton" data-cost="1000" onclick="buyUpgrade(1000, 2)">Mejora 2 (Costo: 1000 planetas)</button>
+        <button id="upgrade3" class="upgradeButton" data-cost="5000" onclick="activateTemporaryMultiplier(2, 60)">Viaje en el tiempo x2 (Costo: 5000 planetas)</button>
+    </div>
+
+    <script>
+        var planetCounter = 0;
+        var clickValue = 1; // Valor de clic por defecto
+        var temporaryMultiplierActive = false;
+
+        // Cargar el progreso del juego al cargar la página
+        window.onload = function() {
+            loadGameProgress();
+            updateUpgradeButtons();
+        };
+
+        // Función para guardar el progreso del juego
+        function saveGameProgress() {
+            localStorage.setItem('planetCounter', planetCounter);
+            localStorage.setItem('clickValue', clickValue);
+        }
+
+        // Función para cargar el progreso del juego
+        function loadGameProgress() {
+            var savedPlanetCounter = localStorage.getItem('planetCounter');
+            var savedClickValue = localStorage.getItem('clickValue');
+
+            if (savedPlanetCounter !== null) {
+                planetCounter = parseInt(savedPlanetCounter);
+            }
+
+            if (savedClickValue !== null) {
+                clickValue = parseInt(savedClickValue);
+            }
+
+            document.getElementById('planetCounter').innerText = planetCounter;
+        }
+
+        function incrementPlanetCounter() {
+            planetCounter += clickValue;
+            document.getElementById('planetCounter').innerText = planetCounter;
+            saveGameProgress(); // Guardar el progreso después de cada clic
+        }
+
+        function buyUpgrade(upgradeCost, upgradeMultiplier) {
+            if (planetCounter >= upgradeCost) {
+                clickValue *= upgradeMultiplier; // Aumentar el valor de clic
+                planetCounter -= upgradeCost; // Restar el costo de la mejora
+                document.getElementById('planetCounter').innerText = planetCounter;
+                updateUpgradeButtons();
+                upgradeCost *= 2; // Incrementar el costo de la próxima mejora
+                document.getElementById('upgrade' + (Array.from(document.getElementsByClassName('upgradeButton')).indexOf(event.currentTarget) + 1)).setAttribute('data-cost', upgradeCost);
+                document.getElementById('upgrade' + (Array.from(document.getElementsByClassName('upgradeButton')).indexOf(event.currentTarget) + 1)).innerText = 'Mejora ' + (Array.from(document.getElementsByClassName('upgradeButton')).indexOf(event.currentTarget) + 1) + ' (Costo: ' + upgradeCost + ' planetas)';
+                saveGameProgress(); // Guardar el progreso después de comprar la mejora
+            } else {
+                alert('¡No tienes suficientes planetas para comprar esta mejora!');
+            }
+        }
+
+        function activateTemporaryMultiplier(multiplier, durationSeconds) {
+            var upgradeCost = 5000; // Costo del viaje en el tiempo
+            if (planetCounter >= upgradeCost) {
+                if (!temporaryMultiplierActive) {
+                    temporaryMultiplierActive = true;
+                    clickValue *= multiplier;
+                    setTimeout(function() {
+                        clickValue /= multiplier;
+                        temporaryMultiplierActive = false;
+                    }, durationSeconds * 1000);
+                } else {
+                    alert('¡Ya tienes un viaje temporal activo!');
+                }
+            } else {
+                alert('¡No tienes suficientes planetas para activar este viaje en el tiempo!');
+            }
+        }
+
+        function updateUpgradeButtons() {
+            var upgradeButtons = document.getElementsByClassName('upgradeButton');
+            for (var i = 0; i < upgradeButtons.length; i++) {
+                var upgradeCost = parseInt(upgradeButtons[i].getAttribute('data-cost'));
+                upgradeButtons[i].innerText = 'Mejora ' + (i + 1) + ' (Costo: ' + upgradeCost + ' planetas)';
+                if (planetCounter < upgradeCost) {
+                    upgradeButtons[i].disabled = true;
+                } else {
+                    upgradeButtons[i].disabled = false;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
